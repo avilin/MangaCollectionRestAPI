@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 flask-restx = "*"
+flask-marshmallow = "*"
+flask-sqlalchemy = "*"
+marshmallow-sqlalchemy = "*"
 flask-cors = "*"
 requests = "*"
 
