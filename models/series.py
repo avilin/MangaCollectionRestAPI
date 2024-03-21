@@ -18,6 +18,7 @@ class SeriesModel(db.Model):
 
     authors = db.relationship("SeriesAuthorModel", back_populates = "series", cascade = "all, delete")
     genres = db.relationship("SeriesGenreModel", back_populates = "series", cascade = "all, delete")
+    users = db.relationship("UserSeriesModel", back_populates = "series", cascade = "all, delete")
 
     def __init__(self, id, title, type = None, description = None, image_url = None, status = None, completed = None, anime_start = None, anime_end = None, url = None):
         self.id = id

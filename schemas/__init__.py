@@ -3,3 +3,5 @@ from schemas.genre import GenreSchema
 from schemas.series_genre import SeriesGenreSchema
 from schemas.author import AuthorSchema
 from schemas.series_author import SeriesAuthorSchema
+from schemas.user import UserSchema
+from schemas.user_series import UserSeriesSchema
