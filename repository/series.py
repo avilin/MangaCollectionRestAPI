@@ -5,6 +5,7 @@ from models.series import SeriesModel
 from schemas.series import SeriesSchema
 from repository.series_author import SeriesAuthorRepository
 from repository.series_genre import SeriesGenreRepository
+from repository.edition import EditionRepository
 
 
 class SeriesRepository():
@@ -14,6 +15,7 @@ class SeriesRepository():
 
     series_author_repository = SeriesAuthorRepository()
     series_genre_repository = SeriesGenreRepository()
+    edition_repository = EditionRepository()
 
     def save_model_to_db_json(self, model_json) -> SeriesModel:
 
@@ -48,6 +50,10 @@ class SeriesRepository():
         if (genres_json := model_json.get("genres", None)) is not None:
             for genre_json in genres_json:
                 self.series_genre_repository.save_model_to_db_json_with_parent_id(model.id, genre_json)
+
+        if (editions_json := model_json.get("editions", None)) is not None:
+            for edition_json in editions_json:
+                self.edition_repository.save_model_to_db_json_with_parent_id(model.id, edition_json)
 
         return model
     

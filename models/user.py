@@ -20,6 +20,7 @@ class UserModel(db.Model):
     rights = db.Column(db.Enum(Rights, create_constraint=True, validate_strings=True,), nullable = False)
 
     series_list = db.relationship("UserSeriesModel", back_populates = "user", cascade = "all, delete")
+    editions = db.relationship("UserEditionModel", back_populates = "user", cascade = "all, delete")
 
     def __init__(self, email, username, password, rights = "USER"):
         self.email = email

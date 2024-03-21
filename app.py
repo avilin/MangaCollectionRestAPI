@@ -13,8 +13,12 @@ from resources.author import namespace as author_ns
 from resources.series_author import namespace as series_author_ns
 from resources.genre import namespace as genre_ns
 from resources.series_genre import namespace as series_genre_ns
+from resources.editorial import namespace as editorial_ns
+from resources.edition import namespace as edition_ns
 from resources.user import namespace as user_ns
 from resources.user_series import namespace as user_series_ns
+from resources.user_edition import namespace as user_edition_ns
+from resources.user_volume import namespace as user_volume_ns
 
 from resources.manga_updates import namespace as manga_updates_ns
 
@@ -36,8 +40,12 @@ api.add_namespace(author_ns)
 api.add_namespace(series_author_ns)
 api.add_namespace(genre_ns)
 api.add_namespace(series_genre_ns)
+api.add_namespace(editorial_ns)
+api.add_namespace(edition_ns)
 api.add_namespace(user_ns)
 api.add_namespace(user_series_ns)
+api.add_namespace(user_edition_ns)
+api.add_namespace(user_volume_ns)
 
 api.add_namespace(manga_updates_ns)
 

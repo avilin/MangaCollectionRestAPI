@@ -3,5 +3,9 @@ from models.genre import GenreModel
 from models.series_genre import SeriesGenreModel
 from models.author import AuthorModel
 from models.series_author import SeriesAuthorModel
+from models.editorial import EditorialModel
+from models.edition import EditionModel
 from models.user import UserModel
 from models.user_series import UserSeriesModel
+from models.user_edition import UserEditionModel
+from models.user_volume import UserVolumeModel
