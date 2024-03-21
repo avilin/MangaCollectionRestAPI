@@ -2,6 +2,7 @@ from flask import request
 from flask_restx import Resource, fields, Namespace
 
 from repository.genre import GenreRepository
+from resources.decorators.authentication import token_required
 
 
 namespace = Namespace("genre", description = "Genre related operations")
@@ -24,7 +25,8 @@ class Genre(Resource):
         
         return self.repository.dump_model(model), 200
 
-    def delete(self, id):
+    @token_required
+    def delete(current_user, self, id):
         if (model := self.repository.find_by_id(id)) is None:
             return {"message": "Not found."}, 404
         

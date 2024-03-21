@@ -5,6 +5,9 @@ from marshmallow import ValidationError
 from ma import ma
 from db import db
 
+from config import config_json
+from repository.user import UserRepository
+
 from resources.series import namespace as series_ns
 from resources.author import namespace as author_ns
 from resources.series_author import namespace as series_author_ns
@@ -14,6 +17,8 @@ from resources.user import namespace as user_ns
 from resources.user_series import namespace as user_series_ns
 
 from resources.manga_updates import namespace as manga_updates_ns
+
+from resources.authentication import namespace as authentication_ns
 
 
 app = Flask(__name__)
@@ -36,11 +41,14 @@ api.add_namespace(user_series_ns)
 
 api.add_namespace(manga_updates_ns)
 
+api.add_namespace(authentication_ns)
+
 db.init_app(app)
 ma.init_app(app)
 
 with app.app_context():
     db.create_all()
+    UserRepository().save_super_admin(config_json["superadmin"])
 
 @api.errorhandler(ValidationError)
 def handle_validation_error(error):
