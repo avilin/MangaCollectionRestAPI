@@ -41,9 +41,6 @@ class UserEditionRepository():
         if (volumes_have := model_json.get("volumes_have", None)) is not None:
             model.volumes_have = volumes_have
 
-        if (volumes_expected := model_json.get("volumes_expected", None)) is not None:
-            model.volumes_expected = volumes_expected
-
         if (wait_for_end := model_json.get("wait_for_end", None)) is not None:
             model.wait_for_end = wait_for_end
 

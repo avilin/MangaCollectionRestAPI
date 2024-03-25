@@ -13,7 +13,7 @@ expected_model = namespace.model("Series", {
     "type": fields.String("Type"),
     "description": fields.String("Description"),
     "image_url": fields.String("ImageURL"),
-    "status": fields.String("Status"),
+    "volumes": fields.Integer(min = 0),
     "completed": fields.Boolean(default = False),
     "anime_start": fields.String("Anime Start"),
     "anime_end": fields.String("Anime End"),

@@ -10,7 +10,7 @@ class SeriesModel(db.Model):
     type = db.Column(db.String)
     description = db.Column(db.String)
     image_url = db.Column(db.String)
-    status = db.Column(db.String)
+    volumes = db.Column(db.Integer)
     completed = db.Column(db.Boolean)
     anime_start = db.Column(db.String)
     anime_end = db.Column(db.String)
@@ -21,13 +21,13 @@ class SeriesModel(db.Model):
     editions = db.relationship("EditionModel", back_populates = "series", cascade = "all, delete")
     users = db.relationship("UserSeriesModel", back_populates = "series", cascade = "all, delete")
 
-    def __init__(self, id, title, type = None, description = None, image_url = None, status = None, completed = None, anime_start = None, anime_end = None, url = None):
+    def __init__(self, id, title, type = None, description = None, image_url = None, volumes = None, completed = None, anime_start = None, anime_end = None, url = None):
         self.id = id
         self.title = title
         self.type = type
         self.description = description
         self.image_url = image_url
-        self.status = status
+        self.volumes = volumes
         self.completed = completed
         self.anime_start = anime_start
         self.anime_end = anime_end

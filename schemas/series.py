@@ -12,3 +12,19 @@ class SeriesSchema(ma.SQLAlchemyAutoSchema):
         model = SeriesModel
         include_relationships = True
         load_instance = True
+
+
+class BasicSeriesSchema(ma.SQLAlchemySchema):
+
+    class Meta:
+        model = SeriesModel
+        load_instance = True
+
+    id = ma.auto_field()
+    title = ma.auto_field()
+    image_url = ma.auto_field()
+    avg_rating = ma.Method("get_average_ratings")
+
+    def get_average_ratings(self, obj):
+        ratings = list(map(lambda userSeries: userSeries.rating, obj.users))
+        return sum(ratings) / len(ratings)

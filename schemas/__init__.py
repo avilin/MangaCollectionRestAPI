@@ -1,4 +1,4 @@
-from schemas.series import SeriesSchema
+from schemas.series import SeriesSchema, BasicSeriesSchema
 from schemas.genre import GenreSchema
 from schemas.series_genre import SeriesGenreSchema
 from schemas.author import AuthorSchema

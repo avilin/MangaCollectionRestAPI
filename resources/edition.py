@@ -11,7 +11,7 @@ namespace = Namespace("edition", description = "Edition related operations")
 expected_model = namespace.model("EditionModel", {
     "editorial_id": fields.Integer(min = 1),
     "series_id": fields.Integer(min = 1),
-    "volume_format": fields.String("Format (Tankoubon, Omnibus, 3 in 1, Digital)"),
+    "format": fields.String("Format (Tankoubon, Omnibus, 3 in 1, Ultimate, Digital...)"),
     "volumes": fields.Integer(min = 0),
     "discontinued": fields.Boolean(default = False),
     "size": fields.String("Size"),

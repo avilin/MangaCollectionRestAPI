@@ -35,6 +35,7 @@ class UserSeriesRepository():
 
         model.rating = model_json.get("rating", None)
         model.review = model_json.get("review", None)
+        model.volumes_expected = model_json.get("volumes_expected", None)
         model.timestamp = model_json.get("timestamp", None)
 
         if (private := model_json.get("private", None)) is not None:

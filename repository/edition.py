@@ -25,13 +25,13 @@ class EditionRepository():
         model = self.find_by_id(model_json.get("id", None))
 
         if model is None:
-            model = self.find_by_ids_and_format(series_id, editorial_model.id, model_json.get("volume_format", None))
+            model = self.find_by_ids_and_format(series_id, editorial_model.id, model_json.get("format", None))
 
         if model is None:
             model = EditionModel(
                 editorial_id = editorial_model.id,
                 series_id = series_id,
-                volume_format = model_json.get("volume_format", None)
+                format = model_json.get("format", None)
             )
         
         if (volumes := model_json.get("volumes", None)) is not None:
@@ -60,11 +60,11 @@ class EditionRepository():
             editorial_id = editorial_id
         )
     
-    def find_by_ids_and_format(self, series_id, editorial_id, volume_format) -> EditionModel:
+    def find_by_ids_and_format(self, series_id, editorial_id, format) -> EditionModel:
         return EditionModel.query.filter_by(
             series_id = series_id, 
             editorial_id = editorial_id, 
-            volume_format = volume_format
+            format = format
         ).first()
     
     def delete(self, model):

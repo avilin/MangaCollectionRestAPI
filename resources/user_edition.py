@@ -12,7 +12,6 @@ expected_model = namespace.model("UserEditionModel", {
     "user_id": fields.Integer(min = 1),
     "edition_id": fields.Integer(min = 1),
     "volumes_read": fields.Integer(min = 0),
-    "volumes_expected": fields.Integer(min = 0),
     "wait_for_end": fields.Boolean(default = False),
     "buy_priority": fields.Integer(min = 0),
     "notes": fields.String("Notes"),

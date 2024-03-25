@@ -15,6 +15,7 @@ expected_model = namespace.model("UserSeriesModel", {
     "series_id": fields.Integer(min = 1),
     "rating": fields.Integer(min = 0),
     "review": fields.String("Review"),
+    "volumes_expected": fields.Integer(min = 0),
     "timestamp": fields.Integer(min = 0),
     "private": fields.Boolean(default = True)
 })

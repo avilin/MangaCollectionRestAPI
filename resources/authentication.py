@@ -9,7 +9,7 @@ from repository.user import UserRepository
 namespace = Namespace("authentication", description = "Authentication related operations")
 
 # Model required by flask_restx for expect
-expected_model = namespace.model("UserModel", {
+expected_model = namespace.model("AuthenticationModel", {
     "username": fields.String("Username"),
     "password": fields.String("Password")
 })

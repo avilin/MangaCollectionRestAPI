@@ -2,7 +2,7 @@ from typing import List
 
 import db
 from models.series import SeriesModel
-from schemas.series import SeriesSchema
+from schemas.series import SeriesSchema, BasicSeriesSchema
 from repository.series_author import SeriesAuthorRepository
 from repository.series_genre import SeriesGenreRepository
 from repository.edition import EditionRepository
@@ -11,7 +11,7 @@ from repository.edition import EditionRepository
 class SeriesRepository():
     
     model_schema = SeriesSchema()
-    models_schema = SeriesSchema(many = True)
+    models_schema = BasicSeriesSchema(many = True)
 
     series_author_repository = SeriesAuthorRepository()
     series_genre_repository = SeriesGenreRepository()
@@ -35,7 +35,7 @@ class SeriesRepository():
         model.type = model_json.get("type", None)
         model.description = model_json.get("description", None)
         model.image_url = model_json.get("image_url", None)
-        model.status = model_json.get("status", None)
+        model.volumes = model_json.get("volumes", None)
         model.completed = model_json.get("completed", None)
         model.anime_start = model_json.get("anime_start", None)
         model.anime_end = model_json.get("anime_end", None)
